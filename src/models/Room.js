@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const { v4: uuid } = require('uuidv4');
+const { uuidv4 } = require('uuid');
 
-const roomSchema = new mongoose.Schema({
-    _id: uuid(),
+const RoomSchema = new mongoose.Schema({
+    _id: uuidv4(),
     name: { type: String, required: true, unique: true },
     description: String,
     capacity: { type: Number, required: true },
@@ -10,4 +10,4 @@ const roomSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = new mongoose.model('Room', roomSchema);
+module.exports = new mongoose.model('Room', RoomSchema);

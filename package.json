@@ -3,11 +3,10 @@
   "description": "P.1 de Fullstack",
   "version": "1.0.0",
   "private": true,
-  "main": "index.js",
-  "type": "module",
+  "main": "src/server/server.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js"
+    "dev": "nodemon src/server/server.js",
+    "start": "node src/server/server.js"
   },
   "author": "Google LLC",
   "license": "Apache-2.0",
@@ -16,6 +15,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.9.0",
     "mongoose": "^8.7.0",
     "pg": "^8.13.0",
     "pg-hstore": "^2.3.4",

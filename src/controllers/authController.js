@@ -11,6 +11,7 @@ exports.register = async (req, res) => {
         res.status(201).json({ message: 'Cadastro criado com sucesso!' });
     } catch (err) {
         res.status(500).json({ error: 'Erro ao criar o cadastro.' });
+        res.status(400).json({ error: 'Erro ao criar o cadastro.' });
     }
 };
 
@@ -25,5 +26,26 @@ exports.login = async (req, res) => {
         res.status(200).json({ token });
     } catch (err) {
         res.status(500).json({ error: 'Erro ao fazer login.' });
+        res.status(400).json({ error: 'Erro ao fazer login.' });
     }
 };
+
+exports.update = async (req, res) => {
+    try {
+        const updateUser = await UserRepository.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        res.status(200).json(updateUser);
+    } catch (err) {
+        res.status(500).json({ error: 'Erro ao atualizar o cadastro.' });
+        res.status(400).json({ error: 'Erro ao atualizar o cadastro.' });
+    }
+}
+
+exports.deleteUser = async (req, res) => {
+    try {
+        const deleteUser = await UserRepository.findByIdAndDelete(req.params.id);
+        res.status(200).json(updateUser);
+    } catch (err) {
+        res.status(500).json({ error: 'Erro ao deletar o usuário.' });
+        res.status(400).json({ error: 'Erro ao deletar o usuário.' });
+    }
+}

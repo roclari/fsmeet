@@ -1,7 +1,7 @@
 const express = require('express');
-const sequelize = require('./models');
-const connectMongo = require('./config/db_mongo');
-const authRoutes = require('./routes/auth');
+const sequelize = require('../config/db_postgres');
+const connectMongo = require('../config/db_mongo');
+const authRoutes = require('../routes/auth');
 require('dotenv').config();
 
 const app = express();
